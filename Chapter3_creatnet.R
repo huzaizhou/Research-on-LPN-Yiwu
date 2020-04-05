@@ -1,11 +1,11 @@
-#´´½¨ÍøÂç
+#åˆ›å»ºç½‘ç»œ
 library(statnet)
 creat <- function(y){
-  path1 <- paste("data/±ßÁĞ±í/",y,".csv",sep="")
-  path2 <- paste("data/½ÚµãĞÅÏ¢±í/",y,"nodeinfo2.csv",sep="")
+  path1 <- paste("data/è¾¹åˆ—è¡¨/",y,".csv",sep="")
+  path2 <- paste("data/èŠ‚ç‚¹ä¿¡æ¯è¡¨/",y,"nodeinfo2.csv",sep="")
   edgelist <- read.csv(path1)
   n <- network(edgelist)
-  #µ¼Èë½ÚµãÊôĞÔ±í£¬Ìí¼ÓÊôĞÔ
+  #å¯¼å…¥èŠ‚ç‚¹å±æ€§è¡¨ï¼Œæ·»åŠ å±æ€§
   nodeinfo <- read.csv(path2,stringsAsFactors=FALSE,quote = "")
   n %v% "industry" <- nodeinfo[,4]
   n %v% "type" <- nodeinfo[,5]
@@ -20,5 +20,5 @@ i = 2009
 n <- creat(i)
 assign(paste("n",substring(as.character(i),3,4),sep=""),n)
 
-#±£´æÍøÂçÊı¾İ
+#ä¿å­˜ç½‘ç»œæ•°æ®
 save(n09,file = 'data/n09.rda')
