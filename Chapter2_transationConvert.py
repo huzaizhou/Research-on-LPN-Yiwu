@@ -1,14 +1,13 @@
 #将2009年对公交易原始数据转换为节点列表
 import pandas as pd
 
-info = pd.read_csv("data/nodeinfo2.csv",index_col=1)
+info = pd.read_csv("data/AllNode.csv",index_col=1)
 
 def convert(year):
-    path1 = "data/"year+"年对公交易明细.xlsx"
+    path1 = "data/OriginalData"+year+".csv"
     path2 = "data/"+year+".csv"
-    path3 = "data/"+year+"nodeinfo.csv"
-    xlsx = pd.ExcelFile(path1)
-    detail = pd.read_excel(xlsx,0)
+    path3 = "data/"+year+"Node.csv"
+    detail = pd.read_csv(path1)
     
     edgeList1 = []
     edgeList2 = []

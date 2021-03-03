@@ -3,8 +3,8 @@ import pandas as pd
 data = pd.ExcelFile('data/统计年鉴数据.xlsx')
 
 def modify(year):
-    path1 = "data/"+year+"nodeinfo.csv"
-    path2 = "data/"+year+"nodeinfo2.csv"
+    path1 = "data/"+year+"Node.csv"
+    path2 = "data/"+year+"Node2.csv"
     info = pd.read_csv(path1,index_col=0,engine='python')
     yeardata = pd.read_excel(data,year,index_col=0)
     

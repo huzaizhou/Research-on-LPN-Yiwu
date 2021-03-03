@@ -20,8 +20,8 @@ def btw(year):
 
 fig,axes = plt.subplots(3,3,figsize=(18,10))
 list = [[2009,2010,2011],[2012,2013,2014],[2015,2016,2017]]
-for i in range(1):
-    for j in range(1):
+for i in range(3):
+    for j in range(3):
         year = list[i][j]
         btws = btw(year)
         ax = axes[i,j]

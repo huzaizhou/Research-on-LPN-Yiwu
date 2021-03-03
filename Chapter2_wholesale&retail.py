@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 degstat = pd.ExcelFile('data/网络结构统计.xlsx')
-nodeinfo = pd.read_csv('data/nodeinfo2.csv',index_col=1,engine='python',encoding='utf_8_sig')
+nodeinfo = pd.read_csv('data/AllNode.csv',index_col=1,engine='python',encoding='utf_8_sig')
 
 dict = {}
 for i in nodeinfo.index:

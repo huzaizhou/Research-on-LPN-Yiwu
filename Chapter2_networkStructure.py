@@ -7,7 +7,7 @@ from numpy import mean,array,vstack
 def creat(year):
     y = str(year)
     G = nx.DiGraph()
-    path = 'data/'+y+'.csv'
+    path = 'data/{}.csv'.format(y)
     edge = pd.read_csv(path,engine='python')
     G.add_edges_from(array(edge))
     return G
@@ -26,28 +26,28 @@ def md(year):
 
 #最大连通子图规模的平均最短路径
 def aspl(year):
-    G = creat(year)
-    largest_cc = lcc(G)
+    largest_cc = lcc(year)
     a = len(largest_cc)
     b = nx.average_shortest_path_length(largest_cc)
     print(a,b)
 
-#随机图的最大连通自如和平均最短路径
+#随机图的最大连通子图和平均最短路径
 def rg(year):
     G = creat(year)
     H = nx.Graph(G)
     n = len(H)
     p = nx.density(H)
     randomGraph = nx.fast_gnp_random_graph(n,p)
-    aspl(randomGraph)
+    largest_cc = max(nx.connected_components(randomGraph), key=len)
+    print(nx.average_shortest_path_length(randomGraph.subgraph(largest_cc)))
 
 #节点度值统计表
 def degstat(year):
     G = creat(year)
     odg = dict(G.out_degree())
     idg = dict(G.in_degree())
-    path2 = 'data/'+str(year)+'nodeinfo2.csv'
-    nodeinfo = pd.read_csv(path2,index_col=2,engine='python')
+    path2 = 'data/'+str(year)+'Node2.csv'
+    nodeinfo = pd.read_csv(path2,index_col=2,engine='python',encoding="utf_8_sig")
     index = list(odg)
     odgvalue = list(odg.values())
     idgvalue = list(idg.values())
