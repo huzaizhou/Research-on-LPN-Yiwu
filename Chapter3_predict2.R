@@ -25,7 +25,7 @@ for (i in 1:2886){
 }
 
 edge2010 <- read.csv('data/2010.csv')
-node2010 <- read.csv('data/2010nodeinfo2.csv')
+node2010 <- read.csv('data/2010Node2.csv')
 
 #给m2加上第四列
 z <- matrix(data=0,nrow=711,ncol=1)
