@@ -6,6 +6,6 @@
 
 
 # Analysis of Local Production Network in Yiwu
-This project include codes and sample data of *Research on Supply-Demand Relationships in Local Production Network: A Case Study of Yiwu City*, the master's dissertation of South China University of Technology.
+This repository contains codes and sample data of *Research on Supply-Demand Relationships in Local Production Network: A Case Study of Yiwu City*, a master's dissertation of South China University of Technology.
 
 Link of dissertation: [Research on Supply-Demand Relationships in Local Production Network: A Case Study of Yiwu City](https://kns.cnki.net/kcms/detail/detail.aspx?doi=10.27151/d.cnki.ghnlu.2020.004110&dbcode=CMFD)
