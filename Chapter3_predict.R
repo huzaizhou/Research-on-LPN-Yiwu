@@ -103,7 +103,7 @@ predict <- function(model,tie,year){
   #year(年份):2009-2017
   y <- substring(as.character(year),3,4)
   edgelist <- read.csv(paste('data/20',y,'.csv',sep=""))
-  nodeinfo <- read.csv(paste('data/20',y,'nodeinfo2.csv',sep=""))
+  nodeinfo <- read.csv(paste('data/20',y,'Node2.csv',sep=""))
   value <- tie(model,get(paste("n",y,sep="")),edgelist,nodeinfo)
   mtype <- ifelse((as.character(substitute(model)) == 'predictm1'),1,2)
   ttype <- ifelse((as.character(substitute(tie)) == 'existing'),1,2)
