@@ -47,7 +47,7 @@ def degstat(year):
     odg = dict(G.out_degree())
     idg = dict(G.in_degree())
     path2 = 'data/'+str(year)+'Node2.csv'
-    nodeinfo = pd.read_csv(path2,index_col=2,engine='python',encoding="utf_8_sig")
+    nodeinfo = pd.read_csv(path2,index_col=2,engine='python',encoding="gbk")
     index = list(odg)
     odgvalue = list(odg.values())
     idgvalue = list(idg.values())

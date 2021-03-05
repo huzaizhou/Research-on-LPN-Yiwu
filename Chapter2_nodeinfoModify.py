@@ -23,6 +23,6 @@ def modify(year):
                 info[j][i] = yeardata[j][info['area'][i]]
         if info['code'][i] % 100 == 0:
             print(info['code'][i])
-    info.to_csv(path2,encoding='utf_8_sig')
+    info.to_csv(path2,encoding='gbk')
 
 modify("2009")
