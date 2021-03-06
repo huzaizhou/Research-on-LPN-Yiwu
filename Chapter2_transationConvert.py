@@ -1,7 +1,7 @@
 #将2009年对公交易原始数据转换为节点列表
 import pandas as pd
 
-info = pd.read_csv("data/AllNode.csv",index_col=1)
+info = pd.read_csv("data/AllNode.csv",index_col=1,encoding='gb18030')
 
 def convert(year):
     path1 = "data/OriginalData"+year+".csv"
@@ -16,8 +16,8 @@ def convert(year):
         end = detail['对方户名'][i]
         if (start in info.index) and (end in info.index):
             if (info['是否本地'][start] == '本地') and (info['是否本地'][end] == '本地'):
-                u = info['单位编号.1'][start]
-                v = info['单位编号.1'][end]
+                u = info['单位编号'][start]
+                v = info['单位编号'][end]
                 if (u != v) and ([u,v] not in edgeList1):
                     edgeList1.append([u,v])
                     edgeList2.append([start,end])
@@ -30,7 +30,7 @@ def convert(year):
     
     indexdict = {}
     for m in allcompany:
-        id_before = info['单位编号.1'][m]
+        id_before = info['单位编号'][m]
         id_new = allcompany.index(m)+1
         l2 = [id_before,id_new]
         indexdict[m] = l2

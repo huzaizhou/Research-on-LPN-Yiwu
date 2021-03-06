@@ -22,14 +22,14 @@ def lcc(year):
 #平均度
 def md(year):
     G = creat(year)
-    print(mean(list(dict(G.degree()).values())))
+    print('平均度：',mean(list(dict(G.degree()).values())))
 
 #最大连通子图规模的平均最短路径
 def aspl(year):
     largest_cc = lcc(year)
     a = len(largest_cc)
     b = nx.average_shortest_path_length(largest_cc)
-    print(a,b)
+    print('最大联通片规模：',a,'\n','平均最短路径：',b)
 
 #随机图的最大连通子图和平均最短路径
 def rg(year):
@@ -39,7 +39,9 @@ def rg(year):
     p = nx.density(H)
     randomGraph = nx.fast_gnp_random_graph(n,p)
     largest_cc = max(nx.connected_components(randomGraph), key=len)
-    print(nx.average_shortest_path_length(randomGraph.subgraph(largest_cc)))
+    a = len(largest_cc)
+    b = nx.average_shortest_path_length(randomGraph.subgraph(largest_cc))
+    print('随机图最大联通片规模：',a,'\n','随机图平均最短路径：',b)
 
 #节点度值统计表
 def degstat(year):
@@ -66,7 +68,7 @@ def cluster(year):
     count1 = sum(a == 1)
     count2 = sum(a >= 0.5) - count1
     count3 = len(G) - count0 - count1 - count2
-    print(year, count0, count1, count2, count3)
+    print('集聚系数分布：',count0, count1, count2, count3)
 
 #平均集聚系数
 def averageClustering(year):
@@ -79,7 +81,7 @@ def btwn(year):
     df = pd.DataFrame(betweenness,columns=['介数'])
     df.to_csv('data/'+str(year)+'betweenness.csv',encoding='utf_8_sig')
     a = array(betweenness)
-    print(sum(a == 0))
+    print('介数为0的点数：',sum(a == 0))
 
 #调用函数，得到结果
 i = 2009

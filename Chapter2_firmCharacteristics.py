@@ -17,12 +17,3 @@ def statistic(year):
 
 for i in range(2009,2018):
     statistic(i)
-
-
-
-
-
-
-
-
-
